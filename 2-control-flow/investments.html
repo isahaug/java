@@ -55,19 +55,72 @@
             return `$${price.toFixed(2)}`
         }
 
-        console.log("---------------------")
-        console.log("PART 1...")
+        console.log("---------------------");
+console.log("PART 1...");
 
+// Format function from Part 1
+function formatUSD(price) {
+    return "$" + price.toFixed(2);  // Format with dollar sign and round to two decimals
+}
 
+// Initial values
+var initialBalance = 150000;  // Starting balance
+var targetBalance = 1000000;  // Target balance of $1M
+var annualReturnRate = 0.08;  // 8% annual return
 
+var currentBalance = initialBalance;
+var years = 0;  // Counter for the number of years
 
+// While loop to simulate yearly growth
+while (currentBalance < targetBalance) {
+    currentBalance *= (1 + annualReturnRate);  // Apply the 8% return
+    years++;  // Increment the year counter
+}
 
+// Log the results
+console.log("Original balance: " + formatUSD(initialBalance));
+console.log("Years to reach $1M: " + years);
+console.log("Ending balance: " + formatUSD(currentBalance));
 
-        console.log("---------------------")
-        console.log("PART 2...")
+console.log("---------------------");
 
+console.log("---------------------");
+    console.log("PART 2...");
 
+    // Format function from Part 1
+    function formatUSD(price) {
+        return "$" + price.toFixed(2);  // Format with dollar sign and round to two decimals
+    }
 
+    // Initial values
+    var initialBalance = 150000;  // Starting balance
+    var targetBalance = 1000000;  // Target balance of $1M
+    var meanReturn = 0.08;  // Mean return of 8%
+    var stdDev = 0.15;  // Standard deviation of 15%
+
+    // Create the random normal function (mean = 8%, standard deviation = 15%)
+    var randomReturn = d3.randomNormal(meanReturn, stdDev);
+
+    var currentBalance = initialBalance;
+    var years = 0;  // Counter for the number of years
+    var randomReturns = [];  // Array to store the random returns each year
+
+    // While loop to simulate yearly growth with random returns
+    while (currentBalance < targetBalance) {
+        var annualReturn = randomReturn();  // Get a random return for this year
+        currentBalance *= (1 + annualReturn);  // Apply the random return to the balance
+        randomReturns.push(annualReturn);  // Store the random return in the array
+        years++;  // Increment the year counter
+    }
+
+    // Log the results
+    console.log("Original balance: " + formatUSD(initialBalance));
+    console.log("Years to reach $1M: " + years);
+    console.log("Ending balance: " + formatUSD(currentBalance));
+    console.log("Random returns each year: " + randomReturns.map(r => r.toFixed(4)));  // Log the random returns, rounded to 4 decimal places
+
+    console.log("---------------------");
+        
 
 
 
