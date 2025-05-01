@@ -61,17 +61,19 @@
 
     <script type="text/javascript">
         console.log("---------------------");
-        console.log("PART 1...");
+console.log("PART 1...");
 
-        // Part 1 - Format price as USD
-        function formatUSD(price) {
-            return "$" + price.toFixed(2);  // Format with dollar sign and round to two decimals
-        }
+// Function to format price as USD
+function formatUSD(price) {
+    return "$" + price.toFixed(2);  // Format with dollar sign and round to two decimals
+}
 
-        var price = 4.6777;
-        console.log(formatUSD(price));  // Example of the function call
+// Example usage: passing 4.6777 as price
+var price = 4.6777;
+console.log(formatUSD(price));  // This will log: "$4.68"
 
-        console.log("---------------------");
+console.log("---------------------");
+
         console.log("PART 2...");
 
         // Part 2 - Format percentage as percentage
