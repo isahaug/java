@@ -61,17 +61,42 @@
             ]
         }
 
-        console.log("---------------------")
-        console.log("PART 1...")
+        console.log("---------------------");
+console.log("PART 1...");
+
+// A. Display the date this data was downloaded
+console.log("Date downloaded: " + gradebook.dateDownloaded);
+
+// B. Display the number of students in the gradebook
+console.log("Number of students: " + gradebook.students.length);
+
+// C. Loop through each student and display their name and grade
+console.log("Student names and grades:");
+gradebook.students.forEach(student => {
+    console.log(`${student.name}: ${student.grade}`);
+});
+
+// D. Use a mapping operation to get an array of just the numeric grades
+const grades = gradebook.students.map(student => student.grade);
+console.log("Grades array: ", grades);
+
+// E. Calculate and display the average grade using d3.mean
+const averageGrade = d3.mean(grades);
+console.log("Average grade: " + averageGrade.toFixed(2));
+
+// F. Calculate and display the median grade using d3.median
+const medianGrade = d3.median(grades);
+console.log("Median grade: " + medianGrade.toFixed(2));
+
+console.log("---------------------");
 
 
 
 
 
 
-        console.log("---------------------")
-        console.log("PART 2...")
 
+      
 
 
 
