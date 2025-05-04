@@ -61,63 +61,42 @@
 
     <script type="text/javascript">
 
-console.log("---------------------");
-console.log("PART 1...");
+        console.log("---------------------")
+        console.log("PART 1...")
 
-// Celsius temperature (given in the problem)
-var celsius = -270;
-
-// Convert to Fahrenheit using the formula F = (9/5) * C + 32
-var fahrenheit = (9 / 5) * celsius + 32;
-
-// Log both Celsius and Fahrenheit temperatures to the console
-console.log("Celsius: " + celsius + "°C");
-console.log("Fahrenheit: " + fahrenheit + "°F");
-
-console.log("---------------------");
-
-console.log("---------------------");
-console.log("PART 2...");
-
-// Function to convert Celsius to Fahrenheit
-function calculateTemp(tempC) {
-    return (9 / 5) * tempC + 32;  // Formula for Celsius to Fahrenheit
-}
-
-// Celsius temperature to pass into the function
-var celsius = -270;
-
-// Invoke the function and store the result
-var fahrenheit = calculateTemp(celsius);
-
-// Log both Celsius and Fahrenheit temperatures to the console
-console.log("Celsius: " + celsius + "°C");
-console.log("Fahrenheit: " + fahrenheit + "°F");
-
-console.log("---------------------");
+        var tempC = -270
+        console.log("TEMP C:", tempC)
+        var tempF = tempC * 9/5 + 32
+        console.log("TEMP F:", tempF)
 
 
-console.log("---------------------");
-console.log("PART 3...");
+        console.log("---------------------")
+        console.log("PART 2...")
 
-// Function to convert Celsius to Fahrenheit (from Part 2)
-function calculateTemp(tempC) {
-    return (9 / 5) * tempC + 32;  // Formula for Celsius to Fahrenheit
-}
+        function convertTemp(c){
+            return c * 9/5 + 32
+        }
 
-// Event listener for the button click
-document.getElementById("calculate").addEventListener("click", function() {
-    // Get the Celsius temperature from the input field
-    var celsius = parseFloat(document.getElementById("input-temp-c").value);
+        var tempC = -270
+        console.log("TEMP C:", tempC)
+        var tempF = convertTemp(tempC)
+        console.log("TEMP F:", tempF)
 
-    // Convert the Celsius to Fahrenheit using the function from Part 2
-    var fahrenheit = calculateTemp(celsius);
 
-    // Display the Fahrenheit temperature in the span element
-    document.getElementById("display-temp-f").textContent = fahrenheit.toFixed(2) + "°F";  // Round to two decimal places
-});
+        console.log("---------------------")
+        console.log("PART 3...")
 
-console.log("---------------------");
+        var inputTempC = document.getElementById("input-temp-c")
+        var calcButton = document.getElementById("calculate")
+        var displayTempF = document.getElementById("display-temp-f")
+
+        function submitForm(params) {
+            var tempC = inputTempC.value
+            var tempF = convertTemp(tempC)
+
+            displayTempF.innerHTML = tempF
+        }
+        calcButton.addEventListener("click", submitForm, false)
 
     </script>
 </body>

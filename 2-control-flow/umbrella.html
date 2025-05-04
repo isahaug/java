@@ -68,95 +68,65 @@
 
     <script type="text/javascript">
 
-console.log("---------------------");
-console.log("PART 1...");
+        console.log("---------------------")
+        console.log("PART 1...")
 
-// Model whether it is raining (true or false)
-var isRaining = true; // Set to true if it is raining, false otherwise
-console.log("Is it raining? " + isRaining);
+        var isRaining = true
+        console.log("IS RAINING:", isRaining)
 
-// Model whether the user owns an umbrella (true or false)
-var ownsUmbrella = false; // Set to true if the user owns an umbrella, false otherwise
-console.log("Do you own an umbrella? " + ownsUmbrella);
+        var ownsUmbrella = false
+        console.log("OWNS UMBRELLA:", ownsUmbrella)
 
-// Conditional logic based on the values of isRaining and ownsUmbrella
-if (!isRaining) {
-    console.log("Skies are clear");
-} else {
-    if (ownsUmbrella) {
-        console.log("Bring your umbrella");
-    } else {
-        console.log("Buy an umbrella");
-    }
-}
-
-console.log("---------------------");
-
-
-
-
-
-
-console.log("---------------------");
-console.log("PART 2...");
-
-// Define the function 'advise' to return appropriate messages based on the input parameters
-function advise(isRaining, ownsUmbrella) {
-    if (!isRaining) {
-        return "Skies are clear";
-    } else {
-        if (ownsUmbrella) {
-            return "Bring your umbrella";
+        if (isRaining) {
+            if (ownsUmbrella) {
+                console.log("Bring your umbrella")
+            } else {
+                console.log("Buy an umbrella")
+            }
         } else {
-            return "Buy an umbrella";
+            console.log("Skies are clear")
         }
-    }
-}
-
-// Test the function with different combinations of boolean values
-console.log(advise(true, true));   // Expected output: "Bring your umbrella"
-console.log(advise(true, false));  // Expected output: "Buy an umbrella"
-console.log(advise(false, true));  // Expected output: "Skies are clear"
-console.log(advise(false, false)); // Expected output: "Skies are clear"
-
-console.log("---------------------");
 
 
+        console.log("---------------------")
+        console.log("PART 2...")
 
-
-
-
-console.log("---------------------");
-console.log("PART 3...");
-
-// Reuse the advise function from Part 2
-function advise(isRaining, ownsUmbrella) {
-    if (!isRaining) {
-        return "Skies are clear";
-    } else {
-        if (ownsUmbrella) {
-            return "Bring your umbrella";
-        } else {
-            return "Buy an umbrella";
+        function advise(isRaining, ownsUmbrella) {
+            var message
+            if (isRaining) {
+                if (ownsUmbrella) {
+                    message = "Bring your umbrella"
+                } else {
+                    message = "Buy an umbrella"
+                }
+            } else {
+                message = "Skies are clear"
+            }
+            return message
         }
-    }
-}
 
-// Event listener for the "Advise" button
-document.getElementById("advise").addEventListener("click", function() {
-    // Get the states of the checkboxes
-    var isRaining = document.getElementById("switch-raining").checked;
-    var ownsUmbrella = document.getElementById("switch-umbrella").checked;
+        console.log(advise(true, true))
+        console.log(advise(true, false))
+        console.log(advise(false, true))
+        console.log(advise(false, false))
 
-    // Call the advise function and get the message
-    var message = advise(isRaining, ownsUmbrella);
 
-    // Display the message in the span
-    document.getElementById("display-message").textContent = message;
-});
+        console.log("---------------------")
+        console.log("PART 3...")
 
-console.log("---------------------");
+        var switchRaining = document.getElementById("switch-raining")
+        var switchUmbrella = document.getElementById("switch-umbrella")
+        var adviseButton = document.getElementById("advise")
+        var displayMessage = document.getElementById("display-message")
 
+        function submitForm(params) {
+            var isRaining = switchRaining.checked
+            var ownsUmbrella = switchUmbrella.checked
+            var message = advise(isRaining, ownsUmbrella)
+
+            displayMessage.innerHTML = message
+        }
+        adviseButton.addEventListener("click", submitForm, false)
 
     </script>
 </body>
