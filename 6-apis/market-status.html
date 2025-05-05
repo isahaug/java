@@ -83,6 +83,14 @@
         }
 
 
+        // ELEMENT REFERENCES
+        //var selectRegion = document.getElementById("select-region")
+        var displayRegion = document.getElementById("display-region")
+        var displayType = document.getElementById("display-type")
+        var displayExchanges = document.getElementById("display-exchanges")
+        var displayOpen = document.getElementById("display-open")
+        var displayClose = document.getElementById("display-close")
+        var displayStatus = document.getElementById("display-status")
 
 
         var requestUrl = `https://www.alphavantage.co/query?function=MARKET_STATUS&apikey=${apiKey}`
@@ -123,10 +131,9 @@
 
 
 
-
-
             console.log("---------------------")
             console.log("PART 2...")
+
             displayRegion.innerText = market.region
             displayType.innerText = market.market_type
             displayExchanges.innerText = market.primary_exchanges
